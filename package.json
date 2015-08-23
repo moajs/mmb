@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "get_collection_names": "^1.0.2"
+    "get_collection_names": "^1.0.2",
+    "commander": "^2.8.1"
   }
 }

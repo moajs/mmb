@@ -205,7 +205,7 @@ crontab简单用法说明
 
 把拷贝json文件里的内容，放到文本框里
 
-➜  mongodbbackup  j2csv
+    ➜  mongodbbackup  j2csv
 
 ![](doc/2.png)
 

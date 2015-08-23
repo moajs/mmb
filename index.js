@@ -30,17 +30,11 @@ var source = __dirname + '/tpl.js'
 var dest = process.cwd() + '/export.sh'
 
 program
-  .version('0.0.1')
+  .version('1.0.0')
   .option('-i, --init', 'init')
-  .option('-P, --pineapple', 'Add pineapple')
-  .option('-b, --bbq-sauce', 'Add bbq sauce')
-  .option('-c, --cheese [type]', 'Add the [marble]', 'marble')
   .parse(process.argv);
 
-console.log('moa mongodb-backup :');
-// if (program.peppers) console.log('  - peppers');
-// if (program.pineapple) console.log('  - pineapple');
-// if (program.bbqSauce) console.log('  - bbq');
+console.log('moa mongodb-backup');
 
 if(program.init){
   console.log('init config...');
@@ -91,6 +85,3 @@ function generate_shell (config, collection_names) {
     });
   }, 200);
 }
-
-
-

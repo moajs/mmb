@@ -71,6 +71,9 @@ function generate_shell (config, collection_names) {
   }, dest);
   
   var generated_dirname = moment().format(config.dirname);
+  if(generated_dirname.split(' ').length > 0){
+    generated_dirname = generated_dirname.split(' ').join('_');
+  }
   
   setTimeout(function(){
     chmod('u+x', dest);

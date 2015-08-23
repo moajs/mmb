@@ -19,12 +19,6 @@ if (!which('mongoexport')) {
   exit(1);
 }
 
-
-if (!which('git')) {
-  echo('Sorry, this script requires git');
-  exit(1);
-}
-
 var config_file = current_path + '/mongo.config.json';
 var source = __dirname + '/tpl.js'
 var dest = process.cwd() + '/export.sh'

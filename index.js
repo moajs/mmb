@@ -39,7 +39,7 @@ if(program.init){
   console.log('init config...');
   
   // Copy files to release dir
-  cp('-R', 'config.json', current_path + '/mongodb.config.json');
+  cp('-f', __dirname +  '/mongo.config.json', current_path + '');
 }
 
 console.log('  - %s cheese', program.cheese);

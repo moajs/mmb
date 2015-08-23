@@ -6,6 +6,8 @@
  - 复制数据文件方式 
  - 使用mongodump方式
 
+oplog以及副本集，集群等备份，还是推荐用mongodump
+
 ## 原理
 
 mongodb的简单备份一般使用mongoexport即可，只要你装了mongodb就有的命令，上面说的其他方式适合dba，而非程序员

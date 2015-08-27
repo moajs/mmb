@@ -140,14 +140,15 @@ Sun Aug 23 22:42:14 CST 2015
 
 这样就代表是正确的。
 
-第四步：集成crontab，写一个脚本cron.sh
+第四步：集成crontab，写一个脚本cron.sh（目前我的线上用的就是这个）
 
 ```
 ➜  mongodbbackup  cat cron.sh 
  #！/bin/bash
 
-cd /Users/sang/test/mongodbbackup
-mmb
+source  ~/.bashrc 
+cd /home/deploy/data-copy
+~/.nvm/versions/io.js/v2.2.1/bin/mmb
 ```
 
 然后,给cron.sh增加执行权限
@@ -165,7 +166,7 @@ chmod +x cron.sh
 填写以下内容
 
 ```
-* * * * * sh /Users/sang/test/mongodbbackup/cron.sh
+49 * * * *  nohup sh /home/deploy/data-copy/cron.sh >~/cron.log 2>&1 &
 ```
 
 保存即可。

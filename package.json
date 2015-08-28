@@ -20,7 +20,7 @@
   "dependencies": {
     "bluebird": "^2.9.34",
     "commander": "^2.8.1",
-    "get_collection_names": "^1.0.2",
+    "get_collection_names": "^1.0.3",
     "moment": "^2.10.6",
     "shelljs": "^0.5.3",
     "tpl_apply": "^1.0.2"

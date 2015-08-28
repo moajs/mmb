@@ -11,14 +11,16 @@
   "bin": {
     "mongobackup": "index.js",
     "mb": "index.js",
-    "mmb": "index.js"
+    "mmb": "index.js",
+    "mi": "mmi.js",
+    "mmi": "mmi.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^2.9.34",
     "commander": "^2.8.1",
-    "get_collection_names": "^1.0.3",
+    "get_collection_names": "^1.0.2",
     "moment": "^2.10.6",
     "shelljs": "^0.5.3",
     "tpl_apply": "^1.0.2"

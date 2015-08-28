@@ -11,7 +11,9 @@
   "bin": {
     "mongobackup": "index.js",
     "mb": "index.js",
-    "mmb": "index.js"
+    "mmb": "index.js",
+    "mi": "mmi.js",
+    "mmi": "mmi.js"
   },
   "author": "",
   "license": "ISC",

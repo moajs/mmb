@@ -3,5 +3,5 @@
 echo $@
 
 {{#each collection_names}}
-nohup mongoimport --drop -d {{../config.db}} -c {{this}}  --host {{../config.host}} --port {{../config.port}} $@/{{this}}.csv>> $@_imoport.log
+nohup mongoimport --drop -d {{../config.db}} -c {{this}}  --host {{../config.host}} --port {{../config.port}} $@/{{this}}.json>> $@_imoport.log
 {{/each}}

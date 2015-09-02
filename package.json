@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm publish .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/index.test.js"
   },
   "preferGlobal": "true",
   "bin": {
@@ -24,5 +24,10 @@
     "moment": "^2.10.6",
     "shelljs": "^0.5.3",
     "tpl_apply": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "mongodb": "^2.0.42",
+    "should": "^7.1.0"
   }
 }

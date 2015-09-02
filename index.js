@@ -36,6 +36,7 @@ if(program.init){
   // Copy files to release dir
   cp('-f', __dirname +  '/mongo.config.json', current_path + '');
 }else{  
+  console.time("mmb");
   if(fs.existsSync(config_file) == true) {
     fs.readFileAsync(config_file, {
       encoding: 'utf-8'
@@ -79,6 +80,7 @@ function generate_shell (config, collection_names) {
         }else{
           console.log('exec sucess!');
         }
+        console.timeEnd("mmb");
     });
   }, 200);
 }

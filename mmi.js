@@ -23,6 +23,8 @@ var dest = process.cwd() + '/import.sh';
 
 console.log('moa mongodb-import');
 
+console.time("mmi");
+
 if (fs.existsSync(config_file) === true) {
   var latestBackUp = process.argv[2] ? process.argv[2] : getLatestBackup(current_path);
   var _new_json_string = JSON.parse(JSON.stringify(fs.readFileSync(config_file, {
@@ -93,6 +95,8 @@ function generate_shell(config, latestBackUp) {
       } else {
         console.log('exec sucess!');
       }
+      
+      console.timeEnd("mmi");
     });
   }, 200)
 }

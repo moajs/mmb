@@ -24,7 +24,7 @@ var source = __dirname + '/tpl.js'
 var dest = process.cwd() + '/export.sh'
 
 program
-  .version('1.0.0')
+  .version(require('./package.json').version)
   .option('-i, --init', 'init')
   .parse(process.argv);
 

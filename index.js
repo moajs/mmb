@@ -26,13 +26,24 @@ var dest = process.cwd() + '/export.sh'
 program
   .version(require('./package.json').version)
   .option('-i, --init', 'init')
+  .option('-a, --auth [info]', 'auth info like  username/password')
   .parse(process.argv);
 
 console.log('moa mongodb-backup');
 
+var user = {};
+if (program.auth) {
+  console.log(' optional: %j', program.auth);
+  var arr = program.auth.split('/');
+  console.log(arr)
+  if (arr.length === 2) {
+    user.name = arr[0]
+    user.passwd = arr[1]
+  }
+}
+
 if(program.init){
-  console.log('init config...');
-  
+  console.log('init config...');  
   // Copy files to release dir
   cp('-f', __dirname +  '/mongo.config.json', current_path + '');
 }else{  
@@ -49,9 +60,15 @@ if(program.init){
         var port  = config.port;
         var db    = config.db;
         
+        if (user.name) {
+          config.auth = true;
+          config.username = user.name;
+          config.password = user.passwd;
+        }
+        
         get_collection_names(host, port, db, function(err, collection_names){
           console.log(collection_names);
-          generate_shell(config, collection_names) 
+          generate_shell(config, collection_names)
         })
     	}).catch(function(err){
     	  console.log(err);
@@ -60,11 +77,15 @@ if(program.init){
 }
 
 function generate_shell (config, collection_names) {
+  if (config.auth === true) {
+    source = __dirname + '/tpl_auth.js'
+  }
+  
   tpl.tpl_apply(source, {
     config            : config,
   	collection_names  : collection_names
   }, dest);
-  
+
   var generated_dirname = moment().format(config.dirname);
   if(generated_dirname.split(' ').length > 0){
     generated_dirname = generated_dirname.split(' ').join('_');
@@ -72,6 +93,7 @@ function generate_shell (config, collection_names) {
   
   setTimeout(function(){
     chmod('u+x', dest);
+
     // execFile: executes a file with the specified arguments
     child_process.execFile(dest, [generated_dirname], 
       {cwd:current_path}, function (error, stdout, stderr) {

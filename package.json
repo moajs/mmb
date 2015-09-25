@@ -23,7 +23,7 @@
     "get_collection_names": "^1.0.3",
     "moment": "^2.10.6",
     "shelljs": "^0.5.3",
-    "tpl_apply": "^1.0.2"
+    "tpl_apply": "^1.0.3"
   },
   "devDependencies": {
     "mocha": "^2.2.5",
